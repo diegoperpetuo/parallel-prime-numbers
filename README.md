@@ -37,7 +37,9 @@ Método writeOutput(long time_sequencial, long time_5_threads, long time_10_thre
 
 ## Gráfico comparativo
 
-É possível comparar o desempenho das três abordagens. O processamento sequencial foi o mais lento (174 ms), enquanto o uso de 5 threads reduziu o tempo para 95 ms (45.4% mais rápido) e 10 threads para 78 ms (55.2% mais rápido). O paralelismo melhora significativamente a eficiência. O desempenho depende do número de núcleos da CPU e do tamanho do conjunto de dados: para pequenos volumes, o sequencial pode ser suficiente; para grandes, o paralelismo é essencial. 
+É possível comparar o desempenho das três abordagens analisadas. O processamento sequencial foi o mais lento, com um tempo de execução de 174 ms, pois verifica cada número de forma individual, sem explorar o paralelismo. Já a abordagem com 5 threads reduziu esse tempo para 95 ms, resultando em um ganho de 45.4%, ao dividir a carga de trabalho entre múltiplas threads. O uso de 10 threads melhorou ainda mais o desempenho, reduzindo o tempo para 78 ms e proporcionando uma redução total de 55.2% em relação à execução sequencial.
+
+O paralelismo se mostrou eficiente para essa tarefa, permitindo uma execução mais rápida ao distribuir o processamento entre várias threads. No entanto, o desempenho depende de fatores como o número de núcleos da CPU e o tamanho do conjunto de dados. Em sistemas com poucos núcleos, um alto número de threads pode gerar concorrência excessiva, impactando negativamente o desempenho. Além disso, para conjuntos de dados pequenos, o o custo adicional de gerenciamento de threads pode não compensar o ganho de velocidade, tornando o processamento sequencial mais viável. Já para grandes volumes de dados, o paralelismo é essencial para reduzir o tempo de execução. Para obter o melhor desempenho, é recomendável testar diferentes quantidades de threads e considerar o hardware disponível.
 
 ![imagem_2025-03-19_232759309](https://github.com/user-attachments/assets/b36c711f-f866-4df0-90b2-ebefd67e1d64)
 
