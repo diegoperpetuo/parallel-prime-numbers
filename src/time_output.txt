@@ -1,0 +1,3 @@
+Tempo (Sequencial): 599 ms
+Tempo (Paralelo com 5 threads): 207 ms
+Tempo (Paralelo com 10 threads): 178 ms
