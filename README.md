@@ -13,7 +13,7 @@ Outro ponto importante de ser citado sobre o projeto é: O projeto engloba 3 imp
 
 O projeto apresenta 2 códigos aplicados para realizar, por completo, a execução da tarefa: o código que realiza a geração e execução das threads e o código que realiza a tradução dos dados de saída para gerar os gráficos.
 
-O código de geração de gráficos foi desenvolvido em Python, que permite, com sua vasta gama de bibliotecas e recursos, a criação facilitada e edição dos gráficos gerados pelos dados concedidos pelo código que realiza a tarefa de fato. Realizando "o input dos outputs", são gerados 3 gráficos que permitem a comparação dos tempos de realização das execuções para estudo, sendo um gráfico "1 thread vs 5 threads vs 10 threads".
+O código de geração de gráficos foi desenvolvido em Python, que permite, com a biblioteca matplotlib, a criação facilitada e edição dos gráficos gerados pelos dados concedidos pelo código que realiza a tarefa de fato. Realizando "o input dos outputs", é gerado um gráfico que permite a comparação dos tempos de realização das execuções para estudo, sendo um gráfico "1 thread vs 5 threads vs 10 threads".
 
 O código do exercício das threads, realizado em Java, é a grande chave para a experimentação implementada. Inicialmente, é recebido o arquivo de input (entrada) que, para esse projeto, utilizaremos o arquivo concedido pelo professor (que instruiu a tarefa) chamado de "Entrada01.txt", sendo delcarado como "inputFile" para que possa ser uma variável que carregue os dados em uma variável String e parâmetro para os diversos métodos. Há também a declaração de 3 variáveis do tipo "long" que serão impressos os tempos dos processamentos das threads, serão gerados os arquivos de output (saída) com os números primos identificados e na mesma ordem em que foram lidos. Dentro dos blocos de código "try/catch", será uma "proteção" de código que faz a análise se os arquivos serão gerados corretamente e evitar erros como arquivos vazios, conteúdos que não sejam o apropriado, etc. Caso não estejam corretos, projeta uma mensagem de erro com tratamento de exceção.
 
@@ -34,6 +34,14 @@ Método sequentialProcessing(String inputFile, String outputFile): o método est
 Método parallelProcessing(String inputFile, String outputFile, int numThreads): O método estático e privado do tipo Long, como parâmetro o arquivo de entrada, o arquivo de saída e o número de threads que serão utilizadas para a execução da atividade. A grade diferença entre os processamentos, além do número de threads que estão trabalhando, será a sua organização de processamento para sincronização das execuções, utilizando o princípio do "synchronizedList" para criar objetos protegidos no processamento. Há também um executor que fará o processo de iniciação das threads e sua "Pool" para que haja o ocorrimento das mesmas. Com isso, semelhante ao processo sequencial, também será feita a captura do tempo da execução com base na quantidade de threads propostas para a tarefa e será escrito os números primos que forem identificados.
 
 Método writeOutput(long time_sequencial, long time_5_threads, long time_10_threads): O método estático e privado do tipo Void, como parâmetro o tempo de cada execução de processamento e sendo escrito em um arquivo do tipo .txt o registro dos tempos para comparação, de forma que possa ser utilizada em um gráfico que será plotado em um código em Python.
+
+## Gráfico comparativo
+
+É possível comparar o desempenho das três abordagens. O processamento sequencial foi o mais lento (174 ms), enquanto o uso de 5 threads reduziu o tempo para 95 ms (45.4% mais rápido) e 10 threads para 78 ms (55.2% mais rápido). O paralelismo melhora significativamente a eficiência. O desempenho depende do número de núcleos da CPU e do tamanho do conjunto de dados: para pequenos volumes, o sequencial pode ser suficiente; para grandes, o paralelismo é essencial. 
+
+![imagem_2025-03-19_232759309](https://github.com/user-attachments/assets/b36c711f-f866-4df0-90b2-ebefd67e1d64)
+
+
 ## Conclusão
 
 Com isso, esse é o detalhamento e a explicação de cada trecho do código para que se haja entendimento completo de como os processos são feitos e como os métodos dentro de todo o código executado possam ter ligação entre si, com envio e recebimentos de parâmetros para executar as tarefas e realizar o registro dos resultados oriundos dos processamentos.
